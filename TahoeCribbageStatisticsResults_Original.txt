@@ -1,0 +1,146 @@
+aes:TahoeCribbage aes$ python StatisticsWork.py 
+
+Statistics Work for Tahoe Cribbage
+
+By Alex Spacek
+July 2021
+
+Flush Odds
+
+Computing odds with simulations.
+
+52 cards in the deck.
+
+Regular Cribbage
+
+ntrials = 100000000 # 100 million
+
+Drawing 6 random cards, seeing how many 4-card flushes we get.
+Also checking with upcard.
+Also discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 11430266 = 11.4303 % (1/9)
+Hand 1 upcard flushes = 2215690 = 2.2157 % = 19.3844 % of flushes
+
+Hand 2 flushes = 11432797 = 11.43 % (1/9)
+Hand 2 upcard flushes = 2212246 = 2.2122 % = 19.3500 % of flushes
+
+Crib 2 flushes = 197106 = 0.1971 % (1/507)
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.479368
+Hand 2 avg flush points per hand assuming always going for flush = 0.479434
+Crib 2 avg flush points per hand assuming random discards = 0.009855
+
+Tahoe Cribbage
+
+ntrials = 100000000 # 100 million
+
+Drawing 9 random cards, seeing how many 7-card flushes we get.
+Also checking with upcard.
+Also putting 3 cards from deck into crib,
+and discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 144296 = 0.1443 % (1/693)
+Hand 1 upcard flushes = 20202 = 0.0202 % = 14.0004 % of flushes
+
+Hand 2 flushes = 143835 = 0.1438 % (1/695)
+Hand 2 upcard flushes = 19971 = 0.0200 % = 13.8847 % of flushes
+
+Crib 2 flushes = 669 = 0.000669 % (1/149,477)
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.010303
+Hand 2 avg flush points per hand assuming always going for flush = 0.010268
+Crib 2 avg flush points per hand assuming random discards = 0.000054
+
+Comparisons:
+Hand 1 normal avg / Tahoe avg = 46.53
+Hand 2 normal avg / Tahoe avg = 46.69
+Crib 2 normal avg / Tahoe avg = 184.14
+
+NOTES:
+* So, Hand 1 regular avg = 0.479368, Hand 2 regular avg = 0.479434, avg of those = 0.479401
+* Hand 1 Tahoe avg = 0.010303, Hand 2 Tahoe avg = 0.010268, avg of those = 0.0102855
+* 0.479401/0.0102855 = 46.6
+* So Tahoe flush should be 46.6 times more points, or:
+* 46.6*7 = 326.2 points for 7 cards, 372.8 points for upcard too
+* Let's try: 40 points per card, 50 points for upcard = 280 points / 330 points
+* Crib regular avg = 0.009855, Crib Tahoe avg = 0.000054
+* 0.009855/0.000054 = 182.5 (or 184.1 more accurately)
+* 184.1*8 = 1472.8
+* Let's try: Automatic Win for crib flush (let's call it 150 points per card = 1200 points)
+
+aes:TahoeCribbage aes$ python StatisticsWork.py 
+
+Statistics Work for Tahoe Cribbage
+
+By Alex Spacek
+July 2021
+
+Flush Odds
+
+Computing odds with simulations.
+
+52 cards in the deck.
+
+Tahoe point per card hand = 40
+Tahoe point for upcard hand = 50
+Tahoe point per card crib = 150
+
+Regular Cribbage
+
+ntrials = 1000000
+
+Drawing 6 random cards, seeing how many 4-card flushes we get.
+Also checking with upcard.
+Also discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 114361 = 11.4361 %
+Hand 1 upcard flushes = 22124 = 2.2124 % = 19.3458 % of flushes
+
+Hand 2 flushes = 114098 = 11.41 %
+Hand 2 upcard flushes = 21817 = 2.1817 % = 19.1213 % of flushes
+
+Crib 2 flushes = 2009 = 0.2009 %
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.479568
+Hand 2 avg flush points per hand assuming always going for flush = 0.478209
+Crib 2 avg flush points per hand assuming random discards = 0.010045
+
+Tahoe Cribbage
+
+ntrials = 1000000
+
+Drawing 9 random cards, seeing how many 7-card flushes we get.
+Also checking with upcard.
+Also putting 3 cards from deck into crib,
+and discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 1343 = 0.1343 %
+Hand 1 upcard flushes = 202 = 0.0202 % = 15.0410 % of flushes
+
+Hand 2 flushes = 1403 = 0.1403 %
+Hand 2 upcard flushes = 201 = 0.0201 % = 14.3264 % of flushes
+
+Crib 2 flushes = 8 = 0.000800 %
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.009603
+Adjusted value = 0.386140
+Hand 2 avg flush points per hand assuming always going for flush = 0.010022
+Adjusted value = 0.402890
+Crib 2 avg flush points per hand assuming random discards = 0.0000640
+Adjusted value = 0.0096000
+
+Comparisons:
+Hand 1 normal avg / Tahoe avg = 49.94
+Hand 2 normal avg / Tahoe avg = 47.72
+Crib 2 normal avg / Tahoe avg = 156.95
+
+Hand 1 normal avg / Tahoe adjusted avg = 1.24
+Hand 2 normal avg / Tahoe adjusted avg = 1.19
+Crib 2 normal avg / Tahoe adjusted avg = 1.05
+
+NOTES:
+* Pretty good. Even though the normal vs. Tahoe hand values are still favoring the normal version,
+* It seems too high to be giving 280/330 points for flushes (a full lap/normal game is 120 points)
+* I'm thinking 10 points per card, so 70 points, 80 with upcard.
+* Crib flush should be automatic win.

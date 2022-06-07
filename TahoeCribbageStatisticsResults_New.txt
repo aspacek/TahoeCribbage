@@ -1,0 +1,104 @@
+Statistics Work for Tahoe Cribbage
+
+By Alex Spacek
+July 2021 - June 2022
+
+Flush Odds
+
+Computing odds with simulations.
+
+52 cards in the deck.
+
+Tahoe points per card hand = 1
+Tahoe points for upcard hand = 1
+Tahoe points per card crib = 1
+
+Regular Cribbage
+
+ntrials = 1000000
+
+Drawing 6 random cards, seeing how many 4-card flushes we get.
+Also checking with upcard.
+Also discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 114008 = 11.4008 %
+Hand 1 upcard flushes = 20148 = 2.0148 % = 17.6724 % of flushes
+
+Hand 2 flushes = 114837 = 11.48 %
+Hand 2 upcard flushes = 20684 = 2.0684 % = 18.0116 % of flushes
+
+Crib 2 flushes = 1872 = 0.1872 %
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.476180
+Hand 2 avg flush points per hand assuming always going for flush = 0.480032
+Crib 2 avg flush points per hand assuming random discards = 0.009360
+
+Tahoe Cribbage
+
+ntrials = 1000000
+
+Drawing 9 random cards, seeing how many 7-card flushes we get.
+Also checking with upcard.
+Also putting 3 cards from deck into crib,
+and discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 1451 = 0.1451 %
+Hand 1 upcard flushes = 175 = 0.0175 % = 12.0606 % of flushes
+
+Hand 2 flushes = 1408 = 0.1408 %
+Hand 2 upcard flushes = 207 = 0.0207 % = 14.7017 % of flushes
+
+Crib 2 flushes = 9 = 0.000900 %
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.010332
+Adjusted value = 0.010332
+Hand 2 avg flush points per hand assuming always going for flush = 0.010063
+Adjusted value = 0.010063
+Crib 2 avg flush points per hand assuming random discards = 0.0000720
+Adjusted value = 0.0000720
+
+Comparisons:
+Hand 1 normal avg / Tahoe avg = 46.09
+Hand 2 normal avg / Tahoe avg = 47.70
+Crib 2 normal avg / Tahoe avg = 130.00
+
+Hand 1 normal avg / Tahoe adjusted avg = 46.09
+Hand 2 normal avg / Tahoe adjusted avg = 47.70
+Crib 2 normal avg / Tahoe adjusted avg = 130.00
+
+Tahoe Cribbage - Only 5 Cards Required
+
+ntrials = 1000000
+
+Drawing 9 random cards, seeing how many >=5-card flushes we get.
+Also checking with upcard.
+Also putting 3 cards from deck into crib,
+and discarding 2 random cards from each hand into crib to check for flushes with upcard.
+
+Hand 1 flushes = 133485 = 13.3485 %
+Hand 1 upcard flushes = 22486 = 2.2486 % = 16.8453 % of flushes
+
+Hand 2 flushes = 133628 = 13.3628 %
+Hand 2 upcard flushes = 22437 = 2.2437 % = 16.7906 % of flushes
+
+Crib 2 flushes = 4997 = 0.499700 %
+
+Hand 1 avg flush points per hand assuming always going for flush = 0.709809
+Adjusted value = 0.709809
+Hand 2 avg flush points per hand assuming always going for flush = 0.710543
+Adjusted value = 0.710543
+Crib 2 avg flush points per hand assuming random discards = 0.0252800
+Adjusted value = 0.0252800
+
+Comparisons:
+Hand 1 normal avg / Tahoe avg = 0.67
+Hand 2 normal avg / Tahoe avg = 0.68
+Crib 2 normal avg / Tahoe avg = 0.37
+
+Hand 1 normal avg / Tahoe adjusted avg = 0.67
+Hand 2 normal avg / Tahoe adjusted avg = 0.68
+Crib 2 normal avg / Tahoe adjusted avg = 0.37
+
+NOTES:
+* I think requiring 5 or more cards for a flush is the way to go.
+* Flushes are more likely, but that's better than being impossible.
